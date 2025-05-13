@@ -20,7 +20,7 @@ __hard_reset__:
     d: .asciz "starting\n"
     .text
     ldr r0, =d
-    bl dbgput_line
-    bl bootload
-    _loop: b _loop
+    bl dbgput_line     // виводимо повідомлення про запуск
+    bl bootload        // переходимо в завантажувач
+    _loop: b _loop    // якщо повернеться — зациклитись
     .size __hard_reset__, .-__hard_reset__
